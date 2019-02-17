@@ -6,6 +6,7 @@ import android.os.Bundle;
 import android.widget.RatingBar;
 import android.view.View;
 import android.util.Log;
+import android.widget.ImageButton;
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
@@ -19,16 +20,38 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
 
+    ImageButton calendarButton;
+    ImageButton journalButton;
+    RatingBar dailyBar;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+        calendarButton = findViewById(R.id.calendarButton);
+        calendarButton.setOnClickListener(
+                new ImageButton.OnClickListener(){
+                    public void onClick(View v){
+                //Changes view to calendar//startActivity(new Intent(MainActivity.this,//insert activity));
+                    }
+                }
+        );
+        journalButton = findViewById(R.id.journalButton);
+        journalButton.setOnClickListener(
+                new ImageButton.OnClickListener(){
+                    public void onClick(View v){
+                 //Changes view to journal//startActivity(new Intent(MainActivity.this,//insert activity));
+                    }
+                }
+        );
 
-        final RatingBar dailyBar = (RatingBar) findViewById(R.id.dailyRating);
+        dailyBar = (RatingBar) findViewById(R.id.dailyRating);
         dailyBar.setOnClickListener(
                 new RatingBar.OnClickListener(){
                     public void onClick(View v){
-                        double dayRating = dailyBar.getRating();
+                        FirebaseDatabase bigData = FirebaseDatabase.getInstance();
+                        DatabaseReference myRef = bigData.getReference("message");
+                        myRef.setValue("");
                         //when you click the rating bar what happens
                     }
                 }
