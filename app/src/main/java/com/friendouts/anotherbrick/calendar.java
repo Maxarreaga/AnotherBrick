@@ -22,7 +22,7 @@ public class calendar extends AppCompatActivity {
     Bitmap mGenerateDateIcon;
     ImageGenerator mImageGenerator;
     ImageView mDisplayGeneratedImage;
-    int dayOfYear = mCurrentDate.get(Calendar.DAY_OF_YEAR);
+    //int dayOfYear = mCurrentDate.get(Calendar.DAY_OF_YEAR);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

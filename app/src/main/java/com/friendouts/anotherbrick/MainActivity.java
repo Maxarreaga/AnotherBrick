@@ -8,7 +8,6 @@ import android.widget.RatingBar;
 import android.view.View;
 import android.util.Log;
 import android.widget.ImageButton;
-import java.util.Calendar;
 
 
 import com.google.firebase.database.DataSnapshot;
@@ -22,11 +21,11 @@ public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
     FirebaseDatabase bigData = FirebaseDatabase.getInstance();
-    DatabaseReference myRef = bigData.getInstance().getReference();
+    DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
 
 
-    Calendar myCalendar = Calendar.getInstance();
-    int yearDay = myCalendar.get(Calendar.DAY_OF_YEAR);
+   // Calendar myCalendar = Calendar.getInstance();
+   // int yearDay = myCalendar.get(Calendar.DAY_OF_YEAR);
     ImageButton calendarButton;
     ImageButton journalButton;
     RatingBar dailyBar;
@@ -73,7 +72,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 String value = dataSnapshot.getValue(String.class);
-                Log.d(TAG, "Value is: " + value);
+
             }
 
             @Override
