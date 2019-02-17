@@ -9,50 +9,50 @@
     <RatingBar
         android:id="@+id/dailyRating"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="15dp"
+        android:layout_height="66dp"
+
+        android:layout_marginEnd="75dp"
+        android:layout_marginBottom="148dp"
         android:rating="3"
-
+        app:layout_constraintBottom_toTopOf="@+id/calendarButton"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText" />
+        app:layout_constraintTop_toBottomOf="@+id/dailyGreeting" />
 
-    <EditText
-        android:id="@+id/editText"
+    <TextView
+        android:id="@+id/dailyGreeting"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="13dp"
-        android:layout_marginTop="16dp"
-        android:layout_marginBottom="246dp"
+        android:layout_marginStart="108dp"
+        android:layout_marginTop="11dp"
+        android:layout_marginBottom="42dp"
         android:ems="10"
         android:inputType="textPersonName"
         android:text="@string/Day_greeting"
-        app:layout_constraintBottom_toTopOf="@+id/calendarButton"
-        app:layout_constraintStart_toStartOf="@+id/dailyRating"
+        app:layout_constraintBottom_toTopOf="@+id/dailyRating"
+        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageButton
         android:id="@+id/calendarButton"
         android:layout_width="0dp"
-        android:layout_height="0dp"
+        android:layout_height="201dp"
         android:layout_marginStart="34dp"
-        android:layout_marginEnd="80dp"
-        android:layout_marginBottom="307dp"
+        android:layout_marginBottom="257dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/journalButton"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editText"
+        app:layout_constraintTop_toBottomOf="@+id/dailyRating"
         app:srcCompat="@android:drawable/ic_menu_agenda" />
 
     <ImageButton
         android:id="@+id/journalButton"
         android:layout_width="0dp"
-        android:layout_height="115dp"
-        android:layout_marginTop="11dp"
-        android:layout_marginEnd="58dp"
+        android:layout_height="201dp"
+        android:layout_marginEnd="45dp"
+        android:layout_marginBottom="2dp"
+        app:layout_constraintBottom_toBottomOf="@+id/calendarButton"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toEndOf="@+id/calendarButton"
-        app:layout_constraintTop_toTopOf="@+id/calendarButton"
         app:srcCompat="@android:drawable/ic_menu_edit" />
 
 </android.support.constraint.ConstraintLayout>

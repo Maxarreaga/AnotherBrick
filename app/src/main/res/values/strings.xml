@@ -2,4 +2,7 @@
     <string name="app_name">AnotherBrick</string>
     <string name="Day_greeting">How was your day today?</string>
     <string name="calendar">Calendar</string>
+    <string name="entry_title">Entry title</string>
+    <string name="journal_entry">Journal Entry</string>
+    <string name="todo">TODO</string>
 </resources>

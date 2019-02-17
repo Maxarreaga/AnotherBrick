@@ -1,5 +1,6 @@
 package com.friendouts.anotherbrick;
 
+import android.content.Intent;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -32,7 +33,7 @@ public class MainActivity extends AppCompatActivity {
         calendarButton.setOnClickListener(
                 new ImageButton.OnClickListener(){
                     public void onClick(View v){
-                //Changes view to calendar//startActivity(new Intent(MainActivity.this,//insert activity));
+                startActivity(new Intent(MainActivity.this,calendar.class));
                     }
                 }
         );
@@ -40,7 +41,7 @@ public class MainActivity extends AppCompatActivity {
         journalButton.setOnClickListener(
                 new ImageButton.OnClickListener(){
                     public void onClick(View v){
-                 //Changes view to journal//startActivity(new Intent(MainActivity.this,//insert activity));
+                 startActivity(new Intent(MainActivity.this,journal.class));
                     }
                 }
         );
