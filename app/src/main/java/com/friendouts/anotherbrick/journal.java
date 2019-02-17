@@ -14,6 +14,9 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 public class journal extends AppCompatActivity {
 
     ImageButton backButton;
@@ -24,18 +27,23 @@ public class journal extends AppCompatActivity {
     DatabaseReference conditionRef = myRef.child("condition");
 
 
+    Date date = java.util.Calendar.getInstance().getTime();
+    SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
+    String today = sdf.format(date);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_journal);
+
+
         journallog = findViewById(R.id.textInputLayout);
         backButton = findViewById(R.id.imageButton);
         backButton.setOnClickListener(
                 new ImageButton.OnClickListener(){
                     public void onClick(View v) {
                         startActivity(new Intent(journal.this,MainActivity.class));
-                        myRef.child("journal_entries").setValue(journallog.getEditText().getText().toString());
+                        myRef.child(today).child("journal_entries").setValue(journallog.getEditText().getText().toString());
                     }
                 }
         );

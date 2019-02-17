@@ -8,6 +8,9 @@ import android.widget.RatingBar;
 import android.view.View;
 import android.util.Log;
 import android.widget.ImageButton;
+import java.util.Calendar;
+import java.util.Date;
+import java.text.SimpleDateFormat;
 
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,9 +26,10 @@ public class MainActivity extends AppCompatActivity {
     FirebaseDatabase bigData = FirebaseDatabase.getInstance();
     DatabaseReference myRef = FirebaseDatabase.getInstance().getReference();
 
+    Date date = java.util.Calendar.getInstance().getTime();
+    SimpleDateFormat sdf = new SimpleDateFormat("ddMMyyyy");
+    String today = sdf.format(date);
 
-   // Calendar myCalendar = Calendar.getInstance();
-   // int yearDay = myCalendar.get(Calendar.DAY_OF_YEAR);
     ImageButton calendarButton;
     ImageButton journalButton;
     RatingBar dailyBar;
@@ -38,7 +42,7 @@ public class MainActivity extends AppCompatActivity {
         calendarButton.setOnClickListener(
                 new ImageButton.OnClickListener(){
                     public void onClick(View v){
-                        myRef.child("dailyRating").setValue(dailyBar.getRating());
+                        myRef.child(today).child("dailyRating").setValue(dailyBar.getRating());
                 startActivity(new Intent(MainActivity.this,calendar.class));
                     }
                 }
@@ -47,7 +51,7 @@ public class MainActivity extends AppCompatActivity {
         journalButton.setOnClickListener(
                 new ImageButton.OnClickListener(){
                     public void onClick(View v){
-                        myRef.child("dailyRating").setValue(dailyBar.getRating());
+                        myRef.child(today).child("dailyRating").setValue(dailyBar.getRating());
                  startActivity(new Intent(MainActivity.this,journal.class));
                     }
                 }
