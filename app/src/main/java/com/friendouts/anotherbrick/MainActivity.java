@@ -8,6 +8,8 @@ import android.widget.RatingBar;
 import android.view.View;
 import android.util.Log;
 import android.widget.ImageButton;
+import java.util.Calendar;
+
 
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.FirebaseDatabase;
@@ -16,11 +18,15 @@ import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
 
 
-
 public class MainActivity extends AppCompatActivity {
 
     private static final String TAG = "MainActivity";
+    FirebaseDatabase bigData = FirebaseDatabase.getInstance();
+    DatabaseReference myRef = bigData.getInstance().getReference();
 
+
+    Calendar myCalendar = Calendar.getInstance();
+    int yearDay = myCalendar.get(Calendar.DAY_OF_YEAR);
     ImageButton calendarButton;
     ImageButton journalButton;
     RatingBar dailyBar;
@@ -50,9 +56,8 @@ public class MainActivity extends AppCompatActivity {
         dailyBar.setOnClickListener(
                 new RatingBar.OnClickListener(){
                     public void onClick(View v){
-                        FirebaseDatabase bigData = FirebaseDatabase.getInstance();
-                        DatabaseReference myRef = bigData.getReference("message");
-                        myRef.setValue("");
+
+                        myRef.setValue(dailyBar.getRating());
                         //when you click the rating bar what happens
                     }
                 }

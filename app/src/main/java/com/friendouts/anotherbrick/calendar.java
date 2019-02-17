@@ -22,12 +22,12 @@ public class calendar extends AppCompatActivity {
     Bitmap mGenerateDateIcon;
     ImageGenerator mImageGenerator;
     ImageView mDisplayGeneratedImage;
-
+    int dayOfYear = mCurrentDate.get(Calendar.DAY_OF_YEAR);
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        setContentView(R.layout.activity_calendar);
 
         mImageGenerator = new ImageGenerator(this);
         mDateEditText = (EditText)findViewById(R.id.txtDateEntered);
@@ -52,6 +52,7 @@ public class calendar extends AppCompatActivity {
                 int year = mCurrentDate.get(Calendar.YEAR);
                 int month = mCurrentDate.get(Calendar.MONTH);
                 int day = mCurrentDate.get(Calendar.DAY_OF_MONTH);
+
 
                 DatePickerDialog mDatePicker = new DatePickerDialog(calendar.this, new DatePickerDialog.OnDateSetListener() {
                     @Override
