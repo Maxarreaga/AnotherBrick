@@ -63,6 +63,8 @@ public class calendar extends AppCompatActivity {
                         mGenerateDateIcon = mImageGenerator.generateDateImage(mCurrentDate,R.drawable.empty_calender);
                         mDisplayGeneratedImage.setImageBitmap(mGenerateDateIcon);
 
+                        mImageGenerator.setDateColor(Color.parseColor("#3c6eaf"));
+
                     }
                 }, year, month, day);
                 mDatePicker.show();
