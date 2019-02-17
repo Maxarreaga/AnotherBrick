@@ -35,7 +35,7 @@ public class journal extends AppCompatActivity {
                 new ImageButton.OnClickListener(){
                     public void onClick(View v) {
                         startActivity(new Intent(journal.this,MainActivity.class));
-                        myRef.setValue(journallog.getEditText().getText().toString());
+                        myRef.child("journal_entries").setValue(journallog.getEditText().getText().toString());
                     }
                 }
         );

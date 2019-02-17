@@ -38,6 +38,7 @@ public class MainActivity extends AppCompatActivity {
         calendarButton.setOnClickListener(
                 new ImageButton.OnClickListener(){
                     public void onClick(View v){
+                        myRef.child("dailyRating").setValue(dailyBar.getRating());
                 startActivity(new Intent(MainActivity.this,calendar.class));
                     }
                 }
@@ -46,6 +47,7 @@ public class MainActivity extends AppCompatActivity {
         journalButton.setOnClickListener(
                 new ImageButton.OnClickListener(){
                     public void onClick(View v){
+                        myRef.child("dailyRating").setValue(dailyBar.getRating());
                  startActivity(new Intent(MainActivity.this,journal.class));
                     }
                 }
@@ -56,7 +58,7 @@ public class MainActivity extends AppCompatActivity {
                 new RatingBar.OnClickListener(){
                     public void onClick(View v){
 
-                        myRef.setValue(dailyBar.getRating());
+                        myRef.child("dailyRating").setValue(dailyBar.getRating());
                         //when you click the rating bar what happens
                     }
                 }
